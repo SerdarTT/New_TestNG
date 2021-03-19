@@ -6,6 +6,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
+import java.util.concurrent.TimeUnit;
+
 public class Web {
 
     private static WebDriver driver = null;
@@ -14,7 +16,7 @@ public class Web {
         System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver");
         driver = new ChromeDriver();
         driver.get("https://edube.org/login");
-
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
     }
     @AfterMethod
